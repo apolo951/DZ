@@ -64,84 +64,47 @@ class RealOCRService {
 
   private async performInitialization(): Promise<void> {
     try {
-      console.log('🔧 [RÉEL-OCR] Initialisation Tesseract.js ARABE OPTIMISÉ...');
+      console.log('🔧 [RÉEL-OCR] Initialisation Tesseract.js BILINGUE ADAPTATIF...');
       
-      // CONFIGURATION CRITIQUE: Arabe AVANT Français pour priorité
-      this.worker = await createWorker(['ara', 'fra'], 1, {
-        logger: (m: any) => console.log('🔍 [TESSERACT-ARABE-PRIORITÉ]', m),
+      // NOUVELLE APPROCHE: Configuration bilingue sans restriction de caractères
+      this.worker = await createWorker(['fra', 'ara'], 1, {
+        logger: (m: any) => console.log('🔍 [TESSERACT-BILINGUE]', m),
         errorHandler: (err: any) => console.warn('⚠️ Tesseract warning (real OCR):', err)
       });
 
-      // Configuration OCR CRITIQUE pour documents algériens
+      // Configuration OCR ADAPTATIVE sans whitelist restrictive
       const ocrConfig = {
-        // Caractères arabes algériens PRIORITAIRES
-        tessedit_char_whitelist: getAlgerianArabicWhitelist(true),
+        // SUPPRESSION de la whitelist restrictive pour permettre détection automatique
+        // tessedit_char_whitelist: getAlgerianArabicWhitelist(true), // RETIRÉ
         
-        // CRITIQUE: PSM Mode 1 pour arabe RTL avec OSD  
-        tessedit_pageseg_mode: '1', // Auto OSD - ESSENTIEL pour RTL
+        // PSM Mode auto avec OSD pour détecter la direction du texte
+        tessedit_pageseg_mode: '1', // Auto OSD - détection automatique
         
-        // CRITIQUE: OCR Engine 3 pour arabe algérien optimal
-        tessedit_ocr_engine_mode: '3', // Legacy + LSTM - meilleur pour arabe
+        // OCR Engine mode optimal pour bilingue
+        tessedit_ocr_engine_mode: '2', // LSTM uniquement - meilleur pour langues multiples
         
-        // Paramètres CRITIQUES pour arabe RTL
-        preserve_interword_spaces: '1',        // ESSENTIEL pour espaces arabes
+        // Paramètres pour support bilingue
+        preserve_interword_spaces: '1',        // Préserver espaces
         textord_arabic_numerals: '1',          // Support chiffres arabes
-        textord_heavy_nr: '1',                 // Améliore reconnaissance arabe
-        textord_min_linesize: '2.5',           // Taille ligne minimale pour arabe
+        textord_heavy_nr: '1',                 // Améliore reconnaissance
         
-        // Désactiver dictionnaires qui interfèrent avec l'arabe
-        load_system_dawg: '0',
-        load_freq_dawg: '0',
-        load_unambig_dawg: '0',
-        load_punc_dawg: '0',
-        load_number_dawg: '0',
+        // Réactivation des dictionnaires pour améliorer le français
+        load_system_dawg: '1',
+        load_freq_dawg: '1',
         
-        // Optimisations spécifiques RTL
-        textord_tabfind_show_vlines: '0',
-        textord_use_cjk_fp_model: '0',
-        classify_enable_learning: '0',
-        classify_enable_adaptive_matcher: '0',
+        // Optimisations générales
+        textord_noise_sizefraction: '10.0',
+        textord_noise_translimit: '7.0',
+        textord_noise_normratio: '2.0',
         
-        // Améliorer détection mots arabes
-        wordrec_enable_assoc: '1',
-        segment_penalty_dict_frequent_word: '1',
-        segment_penalty_dict_case_ok: '1',
-        
-        // Optimisations pour documents algériens scannés
-        textord_noise_sizefraction: '15.0',     // Tolérance bruit élevée
-        textord_noise_translimit: '10.0',       // Déformation caractères
-        textord_noise_normratio: '3.0',         // Normalisation variations
-        
-        // Segmentation améliorée pour arabe
-        chop_enable: '1',                       // Séparation caractères liés
-        wordrec_num_seg_states: '40',           // États segmentation arabe
-        
-        // Espaces arabes optimisés
-        tosp_enough_space_samples_for_median: '2',
-        tosp_old_to_method: '0',
-        
-        // Diacritiques arabes
-        textord_noise_sncount: '0',
-        language_model_penalty_non_freq_dict_word: '0.05',
-        language_model_penalty_non_dict_word: '0.1',
-        
-        // Certitude optimisée pour arabe
-        classify_min_certainty_margin: '7.0',
-        classify_certainty_scale: '25.0',
-        matcher_avg_noise_size: '15.0',
-        
-        // Ajouts CRITIQUES pour améliorer l'arabe
-        textord_tabfind_find_tables: '0',       // Désactiver détection tables qui perturbe l'arabe
-        textord_tablefind_good_lines: '3',      // Réduire seuil lignes
-        tessedit_enable_doc_dict: '0',          // Désactiver dictionnaire document
-        tessedit_enable_bigram_correction: '0', // Désactiver correction bigrammes
-        tessedit_char_blacklist: '|[]{}()<>',   // Caractères problématiques pour arabe
-        
-        ...ARABIC_OCR_PARAMETERS // Paramètres additionnels
+        // Paramètres de certitude équilibrés
+        classify_min_certainty_margin: '5.0',
+        classify_certainty_scale: '20.0',
+        matcher_avg_noise_size: '10.0'
       };
       
       await this.worker.setParameters(ocrConfig);
-      console.log('⚙️ [RÉEL-OCR] Configuration arabe algérienne appliquée:', Object.keys(ocrConfig).length, 'paramètres');
+      console.log('⚙️ [RÉEL-OCR] Configuration bilingue adaptative appliquée:', Object.keys(ocrConfig).length, 'paramètres');
 
       this.isInitialized = true;
       console.log('✅ [RÉEL-OCR] Tesseract.js initialisé avec succès');
@@ -153,7 +116,7 @@ class RealOCRService {
   }
 
   /**
-   * Extrait le texte d'un fichier - 100% RÉEL
+   * Extrait le texte d'un fichier - 100% RÉEL avec détection adaptative
    */
   async extractText(file: File): Promise<RealOCRResult> {
     const startTime = Date.now();
@@ -167,14 +130,7 @@ class RealOCRService {
     }
 
     try {
-      console.log('🔄 [RÉEL-OCR] Extraction:', file.name);
-      
-      // Préprocessing intelligent pour l'arabe
-      let processedFile = file;
-      if (file.type.startsWith('image/')) {
-        console.log('🔧 [RÉEL-OCR] Application du préprocessing arabe...');
-        processedFile = await this.preprocessForArabic(file);
-      }
+      console.log('🔄 [RÉEL-OCR] Extraction adaptative:', file.name);
       
       let result;
       let pages: Array<{ pageNumber: number; text: string; confidence: number }> = [];
@@ -190,8 +146,31 @@ class RealOCRService {
         };
         pages = pdfResult.pages;
       } else {
-        // Extraction image directe avec préprocessing
-        result = await this.worker.recognize(processedFile);
+        // Détection préalable du type de contenu pour configuration optimale
+        const quickSample = await this.getQuickTextSample(file);
+        const isLikelyArabic = this.detectArabicContent(quickSample);
+        
+        // Configuration adaptative selon le contenu détecté
+        if (isLikelyArabic) {
+          console.log('🔍 [RÉEL-OCR] Contenu arabe détecté - Configuration RTL');
+          await this.worker.setParameters({
+            tessedit_char_whitelist: getAlgerianArabicWhitelist(true),
+            tessedit_pageseg_mode: '6', // Bloc uniforme pour arabe
+            preserve_interword_spaces: '1',
+            textord_arabic_numerals: '1'
+          });
+        } else {
+          console.log('🔍 [RÉEL-OCR] Contenu français détecté - Configuration LTR');
+          await this.worker.setParameters({
+            tessedit_char_whitelist: '', // Pas de restriction pour français
+            tessedit_pageseg_mode: '3',  // Colonne pour français
+            load_system_dawg: '1',
+            load_freq_dawg: '1'
+          });
+        }
+        
+        // Extraction avec configuration adaptée
+        result = await this.worker.recognize(file);
         pages = [{
           pageNumber: 1,
           text: result.data.text || '',
@@ -361,25 +340,41 @@ class RealOCRService {
   }
 
   /**
-   * Préprocessing intelligent pour les images contenant de l'arabe
+   * Échantillonnage rapide pour détecter le type de contenu
    */
-  private async preprocessForArabic(file: File): Promise<File> {
+  private async getQuickTextSample(file: File): Promise<string> {
     try {
-      // Import dynamique du préprocesseur arabe
-      const { ArabicImagePreprocessor } = await import('./arabicImagePreprocessor');
+      // Reconnaissance rapide avec paramètres minimaux pour échantillonnage  
+      await this.worker.setParameters({
+        tessedit_pageseg_mode: '1',
+        tessedit_ocr_engine_mode: '2'
+      });
       
-      // Détecter si l'image contient probablement du texte arabe majoritaire
-      const fileName = file.name.toLowerCase();
-      const arabicIndicators = ['arabe', 'arabic', 'ar_', '_ar', 'عربي', 'جريدة', 'رسمية'];
-      const isLikelyArabic = arabicIndicators.some(indicator => fileName.includes(indicator));
-      
-      // DÉSACTIVATION TEMPORAIRE DU PRÉPROCESSING POUR TESTER
-      console.log('🔧 [PRÉPROCESS] DÉSACTIVÉ - Utilisation image originale pour test...');
-      return file; // Retourner l'image originale sans préprocessing
+      const quickResult = await this.worker.recognize(file);
+      return quickResult.data.text || '';
     } catch (error) {
-      console.warn('⚠️ [PRÉPROCESS] Erreur préprocessing (continuera sans):', error);
-      return file; // Retourner le fichier original en cas d'erreur
+      console.warn('⚠️ [SAMPLE] Erreur échantillonnage rapide:', error);
+      return '';
     }
+  }
+
+  /**
+   * Détecte si le contenu est principalement arabe
+   */
+  private detectArabicContent(text: string): boolean {
+    const arabicCharsRegex = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/g;
+    const frenchCharsRegex = /[A-Za-zÀ-ÿ]/g;
+    
+    const arabicMatches = text.match(arabicCharsRegex) || [];
+    const frenchMatches = text.match(frenchCharsRegex) || [];
+    
+    const totalLetters = arabicMatches.length + frenchMatches.length;
+    if (totalLetters < 10) return false; // Pas assez de texte pour décider
+    
+    const arabicRatio = arabicMatches.length / totalLetters;
+    console.log(`🔍 [DÉTECTION] Ratio arabe: ${Math.round(arabicRatio * 100)}% (${arabicMatches.length}/${totalLetters})`);
+    
+    return arabicRatio > 0.3; // Seuil pour considérer comme contenu arabe
   }
 
   /**
