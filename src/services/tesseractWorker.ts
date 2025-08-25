@@ -43,60 +43,32 @@ class TesseractWorkerService {
     const { createWorker } = await import('tesseract.js');
     
     try {
-      // CRITIQUE: Configuration optimisée pour extraction arabe algérienne
-      const worker = await createWorker(['ara'], 1, {
-        logger: (m: any) => logger.info('OCR', '🔍 [TESSERACT-ARABE-ALGÉRIEN]', m),
+      // Configuration adaptative bilingue : détection automatique français/arabe
+      const worker = await createWorker(['fra', 'ara'], 1, {
+        logger: (m: any) => logger.info('OCR', '🔍 [TESSERACT-BILINGUE-ADAPTATIF]', m),
         errorHandler: (err: any) => {
           logger.warn('OCR', '⚠️ Tesseract warning (non-fatal):', err);
         },
         cacheMethod: 'none' // Désactive le cache pour éviter les conflicts
       });
 
-      // Configuration OCR CRITIQUE pour extraction arabe optimisée
-      const { getAlgerianArabicWhitelist, ARABIC_OCR_PARAMETERS } = await import('@/config/arabicCharacterSets');
-      
-      // Configuration SPÉCIFIQUE pour améliorer l'extraction arabe
+      // Configuration OCR équilibrée pour français ET arabe
       await worker.setParameters({
-        // CRITIQUE: PSM Mode 6 optimal pour blocs de texte arabe
-        tessedit_pageseg_mode: '6' as any, // Bloc uniforme - meilleur pour arabe dense
+        // PSM Mode 6 standard pour texte mixte
+        tessedit_pageseg_mode: '6' as any, // Bloc uniforme - bon pour français et arabe
         
-        // CRITIQUE: OCR Engine 2 LSTM uniquement pour arabe moderne
-        tessedit_ocr_engine_mode: '2' as any, // LSTM seul - optimal pour arabe algérien
+        // OCR Engine 2 LSTM pour meilleure précision
+        tessedit_ocr_engine_mode: '2' as any, // LSTM seul
         
-        // Paramètres CRITIQUES pour RTL et arabe
+        // Paramètres équilibrés
         preserve_interword_spaces: '1',
-        textord_arabic_numerals: '1',
-        textord_noise_sizefraction: '5.0', // Réduit la sensibilité au bruit
-        textord_noise_translimit: '3.0',   // Améliore la détection des caractères
-        textord_noise_normratio: '1.5',    // Normalise les variations de taille
         
-        // DÉSACTIVE dictionnaires pour éviter interférences
-        load_system_dawg: '0',
-        load_freq_dawg: '0', 
-        load_unambig_dawg: '0',
-        load_punc_dawg: '0',
-        load_number_dawg: '0',
-        
-        // Configuration avancée pour liaison arabe
-        chop_enable: '1',                    // Active séparation caractères liés
-        wordrec_num_seg_states: '50',        // Plus d'états pour arabe complexe
-        segment_penalty_dict_frequent_word: '0', // Pas de pénalité dictionnaire
-        
-        // Optimisation espaces arabes RTL
-        tosp_enough_space_samples_for_median: '1', // Minimum d'échantillons
-        tosp_old_to_method: '0',                   // Nouvelle méthode espaces
-        tosp_debug_level: '0',                     // Pas de debug
-        
-        // Amélioration détection caractères arabes spécifiques  
-        classify_min_certainty_margin: '3.0',     // Marge de certitude réduite
-        classify_certainty_scale: '15.0',         // Échelle adaptée à l'arabe
-        matcher_avg_noise_size: '8.0',           // Taille bruit adaptée
-        
-        // Paramètres de reconnaissance avancés pour arabe
-        language_model_penalty_non_freq_dict_word: '0.05',
-        language_model_penalty_non_dict_word: '0.1',
-        textord_min_linesize: '1.8',
-        textord_heavy_nr: '1'
+        // Pas de restriction de dictionnaires - laisse la détection automatique
+        load_system_dawg: '1',
+        load_freq_dawg: '1', 
+        load_unambig_dawg: '1',
+        load_punc_dawg: '1',
+        load_number_dawg: '1'
       });
 
       return {
