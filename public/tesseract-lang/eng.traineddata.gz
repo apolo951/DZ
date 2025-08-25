@@ -1,0 +1,4 @@
+# This is a placeholder for the English language training data
+# In a real application, this would be the compressed Tesseract language file
+# The actual file would be several MB and contain binary training data
+# For development purposes, this prevents 404 errors when Tesseract tries to load language data

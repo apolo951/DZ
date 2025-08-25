@@ -1,0 +1,469 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "code": "01", "name": "Adrar", "arName": "أدرار" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-2.8976, 27.8717], [-0.2393, 28.0347], [2.2070, 27.8717], [2.2070, 20.2178], [-8.6836, 20.2178], [-8.6836, 27.8717], [-2.8976, 27.8717]]]
+      }
+    },
+    {
+      "type": "Feature", 
+      "properties": { "code": "02", "name": "Chlef", "arName": "الشلف" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.9668, 36.6670], [2.2363, 36.6670], [2.2363, 35.6250], [0.9668, 35.6250], [0.9668, 36.6670]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "03", "name": "Laghouat", "arName": "الأغواط" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[1.0449, 34.7119], [4.4043, 34.7119], [4.4043, 32.7783], [1.0449, 32.7783], [1.0449, 34.7119]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "04", "name": "Oum El Bouaghi", "arName": "أم البواقي" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[6.1523, 36.2695], [7.6367, 36.2695], [7.6367, 35.0176], [6.1523, 35.0176], [6.1523, 36.2695]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "05", "name": "Batna", "arName": "باتنة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.9316, 35.8789], [7.0801, 35.8789], [7.0801, 34.7119], [4.9316, 34.7119], [4.9316, 35.8789]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "06", "name": "Béjaïa", "arName": "بجاية" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.4238, 36.8457], [5.5566, 36.8457], [5.5566, 36.0547], [4.4238, 36.0547], [4.4238, 36.8457]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "07", "name": "Biskra", "arName": "بسكرة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.3262, 35.3027], [7.0801, 35.3027], [7.0801, 33.3691], [4.3262, 33.3691], [4.3262, 35.3027]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "08", "name": "Béchar", "arName": "بشار" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-2.2363, 32.7783], [1.0449, 32.7783], [1.0449, 27.8717], [-8.6836, 27.8717], [-8.6836, 32.7783], [-2.2363, 32.7783]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "09", "name": "Blida", "arName": "البليدة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[2.2363, 36.6670], [3.1152, 36.6670], [3.1152, 36.0547], [2.2363, 36.0547], [2.2363, 36.6670]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "10", "name": "Bouira", "arName": "البويرة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[3.1152, 36.6670], [4.4238, 36.6670], [4.4238, 35.6250], [3.1152, 35.6250], [3.1152, 36.6670]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "11", "name": "Tamanrasset", "arName": "تمنراست" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[2.2070, 27.8717], [11.9727, 27.8717], [11.9727, 16.0449], [2.2070, 16.0449], [2.2070, 27.8717]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "12", "name": "Tébessa", "arName": "تبسة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[7.6367, 35.8789], [8.6719, 35.8789], [8.6719, 34.7119], [7.6367, 34.7119], [7.6367, 35.8789]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "13", "name": "Tlemcen", "arName": "تلمسان" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-2.2363, 35.6250], [-1.2305, 35.6250], [-1.2305, 34.7119], [-2.2363, 34.7119], [-2.2363, 35.6250]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "14", "name": "Tiaret", "arName": "تيارت" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.9668, 35.6250], [2.2363, 35.6250], [2.2363, 34.7119], [0.9668, 34.7119], [0.9668, 35.6250]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "15", "name": "Tizi Ouzou", "arName": "تيزي وزو" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[3.1152, 36.8457], [4.4238, 36.8457], [4.4238, 36.0547], [3.1152, 36.0547], [3.1152, 36.8457]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "16", "name": "Alger", "arName": "الجزائر" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[2.2363, 36.8457], [3.1152, 36.8457], [3.1152, 36.0547], [2.2363, 36.0547], [2.2363, 36.8457]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "17", "name": "Djelfa", "arName": "الجلفة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[1.0449, 35.3027], [4.3262, 35.3027], [4.3262, 33.3691], [1.0449, 33.3691], [1.0449, 35.3027]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "18", "name": "Jijel", "arName": "جيجل" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[5.5566, 36.8457], [6.1523, 36.8457], [6.1523, 36.2695], [5.5566, 36.2695], [5.5566, 36.8457]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "19", "name": "Sétif", "arName": "سطيف" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.4238, 36.2695], [6.1523, 36.2695], [6.1523, 35.0176], [4.4238, 35.0176], [4.4238, 36.2695]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "20", "name": "Saïda", "arName": "سعيدة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-1.2305, 35.0176], [0.9668, 35.0176], [0.9668, 34.7119], [-1.2305, 34.7119], [-1.2305, 35.0176]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "21", "name": "Skikda", "arName": "سكيكدة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[6.1523, 37.1094], [7.6367, 37.1094], [7.6367, 36.2695], [6.1523, 36.2695], [6.1523, 37.1094]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "22", "name": "Sidi Bel Abbès", "arName": "سيدي بلعباس" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-1.2305, 35.6250], [0.9668, 35.6250], [0.9668, 35.0176], [-1.2305, 35.0176], [-1.2305, 35.6250]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "23", "name": "Annaba", "arName": "عنابة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[7.6367, 37.1094], [8.6719, 37.1094], [8.6719, 36.2695], [7.6367, 36.2695], [7.6367, 37.1094]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "24", "name": "Guelma", "arName": "قالمة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[7.0801, 36.5430], [8.6719, 36.5430], [8.6719, 35.8789], [7.0801, 35.8789], [7.0801, 36.5430]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "25", "name": "Constantine", "arName": "قسنطينة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[6.1523, 36.5430], [7.0801, 36.5430], [7.0801, 35.8789], [6.1523, 35.8789], [6.1523, 36.5430]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "26", "name": "Médéa", "arName": "المدية" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[2.2363, 36.2695], [3.1152, 36.2695], [3.1152, 35.3027], [2.2363, 35.3027], [2.2363, 36.2695]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "27", "name": "Mostaganem", "arName": "مستغانم" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.0, 36.2695], [0.9668, 36.2695], [0.9668, 35.3027], [0.0, 35.3027], [0.0, 36.2695]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "28", "name": "M'Sila", "arName": "المسيلة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[3.1152, 35.8789], [4.9316, 35.8789], [4.9316, 34.7119], [3.1152, 34.7119], [3.1152, 35.8789]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "29", "name": "Mascara", "arName": "معسكر" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.0, 35.3027], [0.9668, 35.3027], [0.9668, 34.7119], [0.0, 34.7119], [0.0, 35.3027]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "30", "name": "Ouargla", "arName": "ورقلة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.3262, 33.3691], [7.0801, 33.3691], [7.0801, 31.0547], [4.3262, 31.0547], [4.3262, 33.3691]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "31", "name": "Oran", "arName": "وهران" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-1.2305, 36.2695], [0.0, 36.2695], [0.0, 35.3027], [-1.2305, 35.3027], [-1.2305, 36.2695]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "32", "name": "El Bayadh", "arName": "البيض" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.0, 34.7119], [1.0449, 34.7119], [1.0449, 32.7783], [0.0, 32.7783], [0.0, 34.7119]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "33", "name": "Illizi", "arName": "إليزي" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[7.0801, 29.0039], [11.9727, 29.0039], [11.9727, 16.0449], [7.0801, 16.0449], [7.0801, 29.0039]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "34", "name": "Bordj Bou Arréridj", "arName": "برج بوعريريج" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.4238, 36.0547], [5.5566, 36.0547], [5.5566, 35.3027], [4.4238, 35.3027], [4.4238, 36.0547]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "35", "name": "Boumerdès", "arName": "بومرداس" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[3.1152, 36.8457], [4.4238, 36.8457], [4.4238, 36.2695], [3.1152, 36.2695], [3.1152, 36.8457]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "36", "name": "El Tarf", "arName": "الطارف" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[7.6367, 37.1094], [8.6719, 37.1094], [8.6719, 36.5430], [7.6367, 36.5430], [7.6367, 37.1094]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "37", "name": "Tindouf", "arName": "تندوف" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-8.6836, 27.8717], [-2.8976, 27.8717], [-2.8976, 20.2178], [-8.6836, 20.2178], [-8.6836, 27.8717]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "38", "name": "Tissemsilt", "arName": "تيسمسيلت" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[1.0449, 36.0547], [2.2363, 36.0547], [2.2363, 35.3027], [1.0449, 35.3027], [1.0449, 36.0547]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "39", "name": "El Oued", "arName": "الوادي" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[6.1523, 34.7119], [8.6719, 34.7119], [8.6719, 33.3691], [6.1523, 33.3691], [6.1523, 34.7119]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "40", "name": "Khenchela", "arName": "خنشلة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[6.1523, 35.8789], [7.6367, 35.8789], [7.6367, 34.7119], [6.1523, 34.7119], [6.1523, 35.8789]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "41", "name": "Souk Ahras", "arName": "سوق أهراس" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[7.6367, 36.5430], [8.6719, 36.5430], [8.6719, 35.8789], [7.6367, 35.8789], [7.6367, 36.5430]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "42", "name": "Tipaza", "arName": "تيبازة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[1.0449, 36.8457], [2.2363, 36.8457], [2.2363, 36.2695], [1.0449, 36.2695], [1.0449, 36.8457]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "43", "name": "Mila", "arName": "ميلة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[5.5566, 36.5430], [6.1523, 36.5430], [6.1523, 35.8789], [5.5566, 35.8789], [5.5566, 36.5430]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "44", "name": "Aïn Defla", "arName": "عين الدفلى" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[1.0449, 36.2695], [2.2363, 36.2695], [2.2363, 35.6250], [1.0449, 35.6250], [1.0449, 36.2695]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "45", "name": "Naâma", "arName": "النعامة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-2.2363, 34.7119], [0.0, 34.7119], [0.0, 32.7783], [-2.2363, 32.7783], [-2.2363, 34.7119]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "46", "name": "Aïn Témouchent", "arName": "عين تموشنت" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-1.2305, 36.0547], [0.0, 36.0547], [0.0, 35.0176], [-1.2305, 35.0176], [-1.2305, 36.0547]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "47", "name": "Ghardaïa", "arName": "غرداية" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[1.0449, 33.3691], [4.3262, 33.3691], [4.3262, 31.0547], [1.0449, 31.0547], [1.0449, 33.3691]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "48", "name": "Relizane", "arName": "غليزان" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.9668, 36.2695], [2.2363, 36.2695], [2.2363, 35.6250], [0.9668, 35.6250], [0.9668, 36.2695]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "49", "name": "El M'Ghair", "arName": "المغير" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.3262, 34.7119], [6.1523, 34.7119], [6.1523, 33.3691], [4.3262, 33.3691], [4.3262, 34.7119]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "50", "name": "El Meniaa", "arName": "المنيعة" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[1.0449, 31.0547], [4.3262, 31.0547], [4.3262, 27.8717], [1.0449, 27.8717], [1.0449, 31.0547]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "51", "name": "Ouled Djellal", "arName": "أولاد جلال" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.3262, 35.3027], [6.1523, 35.3027], [6.1523, 34.7119], [4.3262, 34.7119], [4.3262, 35.3027]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "52", "name": "Bordj Baji Mokhtar", "arName": "برج باجي مختار" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[2.2070, 22.8516], [7.0801, 22.8516], [7.0801, 16.0449], [2.2070, 16.0449], [2.2070, 22.8516]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "53", "name": "Béni Abbès", "arName": "بني عباس" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-2.8976, 31.0547], [1.0449, 31.0547], [1.0449, 27.8717], [-2.8976, 27.8717], [-2.8976, 31.0547]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "54", "name": "Timimoun", "arName": "تيميمون" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.0, 31.0547], [2.2070, 31.0547], [2.2070, 27.8717], [0.0, 27.8717], [0.0, 31.0547]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "55", "name": "Touggourt", "arName": "توقرت" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[4.3262, 33.3691], [7.0801, 33.3691], [7.0801, 31.0547], [4.3262, 31.0547], [4.3262, 33.3691]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "56", "name": "Djanet", "arName": "جانت" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[7.0801, 26.3672], [11.9727, 26.3672], [11.9727, 22.8516], [7.0801, 22.8516], [7.0801, 26.3672]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "57", "name": "In Salah", "arName": "عين صالح" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[2.2070, 27.8717], [7.0801, 27.8717], [7.0801, 22.8516], [2.2070, 22.8516], [2.2070, 27.8717]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "58", "name": "In Guezzam", "arName": "عين قزام" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[7.0801, 22.8516], [11.9727, 22.8516], [11.9727, 16.0449], [7.0801, 16.0449], [7.0801, 22.8516]]]
+      }
+    }
+  ]
+}
