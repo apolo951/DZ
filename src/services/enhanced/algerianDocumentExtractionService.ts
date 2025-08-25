@@ -185,7 +185,10 @@ class AlgerianDocumentExtractionService {
         totalPages: algerianPages.length,
         averageConfidence: this.calculateAverageConfidence(algerianPages),
         processingTime,
-        rawOcrResult
+        rawOcrResult,
+        // Détection de langue basée sur le résultat OCR
+        languageDetected: this.detectPrimaryLanguage(rawOcrResult.detectedLanguages),
+        isMixedLanguage: rawOcrResult.detectedLanguages.length > 1
       };
 
       // Analyse complémentaire: liens juridiques (Vu, modifications, abrogations, etc.)
@@ -525,6 +528,28 @@ class AlgerianDocumentExtractionService {
       confidence: rawPage.confidence || 0.8,
       processingTime: rawPage.processingTime || 0
     };
+  }
+
+  /**
+   * Détermine la langue primaire à partir de la liste des langues détectées
+   */
+  private detectPrimaryLanguage(detectedLanguages: string[]): string {
+    if (!detectedLanguages || detectedLanguages.length === 0) return 'fr';
+    
+    // Si plusieurs langues, retourne la première (généralement la plus fréquente)
+    const primaryLang = detectedLanguages[0];
+    
+    // Normalisation des codes de langue
+    switch (primaryLang) {
+      case 'ara':
+      case 'ar':
+        return 'ar';
+      case 'fra':
+      case 'fr':
+        return 'fr';
+      default:
+        return 'fr'; // Défaut français
+    }
   }
 }
 

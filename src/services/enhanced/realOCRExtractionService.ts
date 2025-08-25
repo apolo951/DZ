@@ -83,33 +83,19 @@ class RealOCRExtractionService {
       const worker = await tesseractWorkerService.getTesseractWorker();
       const config = ocrConfigurationService.getConfiguration();
 
-      // Configuration optimisée pour l'arabe algérien
-      const psm = String(config.extraction.psm ?? 1); // PSM 1 optimal pour arabe (OSD)
-      const oem = String(config.extraction.oem ?? 3); // OEM 3 (Legacy + LSTM) 
+      // Configuration adaptative selon la langue détectée
+      const psm = String(config.extraction.psm ?? 6); // PSM 6 meilleur pour texte standard
+      const oem = String(config.extraction.oem ?? 2); // OEM 2 LSTM seul plus précis
       
-      // Whitelist étendue pour français + arabe algérien
-      const arabicChars = 'ابتثجحخدذرزسشصضطظعغفقكلمنهويءآأؤإئة٠١٢٣٤٥٦٧٨٩';
-      const frenchChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöùúûüÿ0123456789 .,;:!?()[]{}"\'-°';
-      const whitelist = config.extraction.whiteList || (arabicChars + frenchChars);
+      // Pas de whitelist restrictive - laisse Tesseract détecter automatiquement
+      const whitelist = config.extraction.whiteList || ''; // Vide = pas de restriction
 
       await worker.setParameters({
         tessedit_pageseg_mode: psm,
         tessedit_ocr_engine_mode: oem,
-        tessedit_char_whitelist: whitelist,
+        ...(whitelist && { tessedit_char_whitelist: whitelist }),
         preserve_interword_spaces: '1',
-        user_defined_dpi: String(config.extraction.dpi ?? 300),
-        // Paramètres spécifiques pour l'arabe algérien
-        load_system_dawg: '0',
-        load_freq_dawg: '0',
-        load_unambig_dawg: '0',
-        load_punc_dawg: '0',
-        load_number_dawg: '0',
-        load_bigram_dawg: '0',
-        tessedit_enable_doc_dict: '0',
-        classify_enable_learning: '0',
-        classify_enable_adaptive_matcher: '1',
-        textord_really_old_xheight: '1',
-        textord_min_xheight: '7'
+        user_defined_dpi: String(config.extraction.dpi ?? 300)
       });
 
       console.log('🇩🇿 Configuration OCR optimisée pour l\'arabe algérien appliquée - PSM:1, OEM:3');

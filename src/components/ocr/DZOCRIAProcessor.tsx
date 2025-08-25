@@ -3508,15 +3508,15 @@ Le Chef du Gouvernement
         textRegions: [],
         metadata: realDoc.metadata || {},
         confidence: Math.round((extractedText?.confidence || 0.85) * 100),
-        languageDetected: extractedText?.language || 'fr',
-        isMixedLanguage: false
+        languageDetected: realDoc.languageDetected || extractedText?.language || 'fr',
+        isMixedLanguage: realDoc.isMixedLanguage || false
       });
       updateWorkflowData({
         selectedFile: file,
         extractedText: {
           content: aggregatedText,
           confidence: extractedText?.confidence || 0.85,
-          language: 'fr',
+          language: realDoc.languageDetected || extractedText?.language || 'fr',
           pages: canvases.length
         },
         extractedDocument: realDoc
